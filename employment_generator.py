@@ -6,7 +6,7 @@ def generate_ramdom_ocupation(idade):
         status = random.choices(["Desocupado", "Ocupado"], weights=[7.73, 92.27])[0]
         if status == "Ocupado":
             ocupation = random.choices(["Empregado: Setor privado (CLT)", "Empregado: Setor privado (sem CLT)", 
-                                    "Empregado: Trabalhador doméstico (CLT)", "Empregado: Trabalhador doméstico (sem CLT)", "Médio incompleto", 
+                                    "Empregado: Trabalhador doméstico (CLT)", "Empregado: Trabalhador doméstico (sem CLT)", 
                                     "Empregado: Setor publico (CLT)", "Empregado: Setor publico (sem CLT)", 
                                     "Empregado: Setor ublico (estatutário ou militar)", "Empregador: Com CNPJ",
                                     "Empregador: Sem CNPJ", "Autonomo: Com CNPJ", "Autonomo: Sem CNPJ",
