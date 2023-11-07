@@ -16,6 +16,7 @@ male_names = [
     "Geraldo", "Álvaro", "Armando", "Arnaldo", "Vicente",
     "Roberto", "Sergio", "Wagner", "Anderson"
 ]
+unique_male_names = list(set(male_names))
 
 # Lista de nomes femininos
 female_names = [
@@ -33,6 +34,7 @@ female_names = [
     "Brenda", "Nathalia", "Amanda", "Karla", "Simone",
     "Valéria", "Eduarda", "Mariana", "Rosana", "Tânia"
 ]
+unique_female_names = list(set(female_names))
 
 # Lista de sobrenomes
 surnames = [
@@ -46,19 +48,20 @@ surnames = [
     "Ferreira", "Sousa", "Pereira", "Freitas", "Cardoso", "Pinto", "Santos", "Machado", "Nascimento", "Nogueira",
     "Borges", "Silveira", "Costa", "Alves", "Araújo", "Melo", "Gouveia", "Azevedo", "Campos", "Gonçalves"
 ]
+unique_surnames = list(set(surnames))
 
 def generate_name_by_gender(gender):
     num_names = random.choices([1, 2], weights=[75, 25])[0]
     num_surnames = random.choices([1, 2, 3, 4], weights=[25, 60, 10, 5])[0]
 
     if gender == "Masculino":
-        first_name = random.sample(male_names, num_names)
+        first_name = random.sample(unique_male_names, num_names)
     elif gender == "Feminino":
-        first_name = random.sample(female_names, num_names)
+        first_name = random.sample(unique_female_names, num_names)
     else:  # Gênero não-binário
-        first_name = random.sample(random.choice([male_names, female_names]), num_names)
+        first_name = random.sample(random.choice([unique_male_names, unique_female_names]), num_names)
     
-    last_names = random.sample(surnames, num_surnames)
+    last_names = random.sample(unique_surnames, num_surnames)
     full_name = ' '.join(first_name + last_names)
 
     return full_name
