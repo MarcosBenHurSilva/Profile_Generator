@@ -11,6 +11,7 @@ from cep_generator import generate_cep
 from ethnicity_generator import generate_random_ethnicity
 from educationLv_generator import generate_ramdom_educationLv
 from employment_generator import generate_ramdom_ocupation
+from mother_generator import generate_mother_by_name
 
 # Solicita ao usuário o número de perfis a serem gerados
 num_perfil = int(input("Digite o número de perfis a serem gerados: "))
@@ -24,12 +25,13 @@ for i in range(num_perfil):
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
     etnia = generate_random_ethnicity(gender)
+    mae = generate_mother_by_name(full_name)
     educacao = generate_ramdom_educationLv(idade)
     ocupation = generate_ramdom_ocupation(idade)
     valid_cep = generate_cep()
     perfis_data.append(
         {"id": i + 1, "Nome": full_name, "Idade": idade, "Gênero": gender, 
-         "Etnia": etnia, "Educação": educacao, "Ocupação": ocupation, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid})
+         "Etnia": etnia, "Nome da Mãe": mae, "Educação": educacao, "Ocupação": ocupation, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid})
 
 # Cria um arquivo JSON com os perfis gerados
 json_filename = "perfis_generated.json"
@@ -43,12 +45,12 @@ wb = Workbook()
 ws = wb.active
 
 # Adicione cabeçalhos
-ws.append(["ID", "Nome", "Idade", "Gênero", "Etnia", "Educação", "Ocupação", "CPF", "CEP"])
+ws.append(["ID", "Nome", "Idade", "Gênero", "Etnia","Nome da Mãe", "Educação", "Ocupação", "CPF", "CEP"])
 
 # Adicione os perfis aos dados
 for perfil in perfis_data:
     ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Gênero"], 
-               perfil["Etnia"], perfil["Educação"], perfil["Ocupação"], perfil["Cpf"], perfil["CEP"]])
+               perfil["Etnia"],perfil["Nome da Mãe"] , perfil["Educação"], perfil["Ocupação"], perfil["Cpf"], perfil["CEP"]])
 
 # Especifique o caminho do arquivo .xls
 xls_filename = "perfis_generated_openpyxl.xlsx"
