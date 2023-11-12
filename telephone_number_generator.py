@@ -20,6 +20,6 @@ def generate_brazilian_phone_number():
     number = ''.join(random.choices("0123456789", k=8))
 
     # Formatar o número de telefone
-    formatted_phone_number = f"({ddd}) 9{number[:3]}-{number[3:]}"
+    formatted_phone_number = f"({ddd}) 9{number[:4]}-{number[4:]}"
 
     return formatted_phone_number
