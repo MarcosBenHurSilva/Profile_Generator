@@ -16,11 +16,10 @@ def generate_brazilian_phone_number():
     # Gerar DDD aleatório
     ddd = random.choice(ddd_list)
 
-    # Gerar número aleatório com 9 dígitos
-    number = ''.join(random.choices("0123456789", k=9))
+    # Gerar número aleatório com 8 dígitos
+    number = ''.join(random.choices("0123456789", k=8))
 
     # Formatar o número de telefone
-    formatted_phone_number = f"({ddd}) 9{number[:4]}-{number[4:]}"
+    formatted_phone_number = f"({ddd}) 9{number[:3]}-{number[3:]}"
 
     return formatted_phone_number
-
