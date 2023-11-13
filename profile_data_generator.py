@@ -12,6 +12,7 @@ from employment_generator import generate_ramdom_ocuppation
 from telephone_number_generator import generate_brazilian_phone_number
 from telephone_generator import generate_brazilian_telephone_number
 from ddd_generator import generate_ddd
+from Data_Transfer_Object import ProfileDTO
 
 def generate_profiles(num_profiles):
     profiles = []
@@ -37,5 +38,14 @@ def generate_profiles(num_profiles):
             "Educação": education, "Ocupação": occupation, "Telefone": ddd + phone_number,
             "Celular": ddd + cell_number, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid
         })
+
+        # Crie uma instância do ProfileDTO
+        profile_dto = ProfileDTO(
+            i + 1, full_name, age, birthday, gender, ethnicity,
+            education, occupation, ddd + phone_number, ddd + cell_number, cpf, valid_cep, is_valid
+        )
+
+        # Adicione o dicionário do DTO à lista de perfis
+        profiles.append(profile_dto.to_dict())
 
     return profiles
