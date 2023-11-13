@@ -6,8 +6,11 @@ e o mais genuinios possíveis. O objetivo principal é criar dados fictícios pa
 simulações ou qualquer outra situação em que dados realistas sejam necessários.
 
 Como Usar
+
         Certifique-se de ter o Python instalado em seu sistema.
+        
 Estrutura do Projeto
+
     main.py: O script principal que interage com o usuário e coordena a geração de perfis.
     json_generator.py: Módulo para salvar os perfis gerados em um arquivo JSON.
     xlx_generator.py: Módulo para salvar os perfis gerados em um arquivo Excel usando a biblioteca Openpyxl.
