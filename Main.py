@@ -1,6 +1,7 @@
 from profile_data_generator import generate_profiles
 from json_generator import save_to_json
 from xlx_generator import save_to_excel
+from Save_to_Database import save_to_database
 
 if __name__ == "__main__":
     try:
@@ -14,6 +15,8 @@ if __name__ == "__main__":
         xls_filename = "perfis_generated_openpyxl.xlsx"
         save_to_excel(profiles_data, xls_filename)
         print(f"{num_profiles} Perfis gerados e salvos em {xls_filename}")
+
+        save_to_database(profiles_data)
 
     except ValueError:
         print("Por favor, insira um número válido para o número de perfis.")
