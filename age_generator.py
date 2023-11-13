@@ -36,9 +36,14 @@ def generate_bithday(idade):
 
     # Gera um dia e mês de aniversário aleatórios
     birth_month = random.randint(1, 12)
-    birth_day = random.randint(1, 28)  # Assume um máximo de 28 dias em um mês para simplificar
+    birth_month = random.randint(1, 12)
+    max_day = 30 if birth_month in [4, 6, 9, 11] else 28 if birth_month == 2 else 31
+    birth_day = random.randint(1, max_day)
 
     # Combina os componentes para formar a data de aniversário
     birthday = datetime.date(birth_year, birth_month, birth_day)
 
-    return birthday
+    # Formata a data como uma string 'dd/mm/aaaa'
+    birthday_str = birthday.strftime('%d/%m/%Y')
+
+    return birthday_str
