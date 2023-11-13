@@ -7,6 +7,7 @@ from name_generator import generate_name_by_gender
 from cpf_generator import generate_cpf
 from cpf_generator import validate_cpf
 from age_generator import generate_random_age
+from age_generator import generate_bithday
 from cep_generator import generate_cep
 from ethnicity_generator import generate_random_ethnicity
 from educationLv_generator import generate_ramdom_educationLv
@@ -39,6 +40,7 @@ for i in range(num_perfil):
     cpf = generate_cpf()
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
+    aniversario = generate_bithday(idade)
     etnia = generate_random_ethnicity(gender)
     mae = generate_mother_by_name(full_name)
     educacao = generate_ramdom_educationLv(idade)
@@ -47,7 +49,7 @@ for i in range(num_perfil):
     celular = generate_brazilian_phone_number()
     valid_cep = generate_cep()
     perfis_data.append(
-        {"id": i + 1, "Nome": full_name, "Idade": idade, "Gênero": gender, 
+        {"id": i + 1, "Nome": full_name, "Idade": idade, "Data de Nascimento": aniversario, "Gênero": gender, 
          "Etnia": etnia, "Nome da Mãe": mae, "Educação": educacao, "Ocupação": ocupation, "Telefone": ddd + telefone, "Celular": ddd + celular, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid})
 
 # Cria um arquivo JSON com os perfis gerados
@@ -62,11 +64,11 @@ wb = Workbook()
 ws = wb.active
 
 # Adicione cabeçalhos
-ws.append(["ID", "Nome", "Idade", "Gênero", "Etnia","Nome da Mãe", "Educação", "Ocupação","Telefone","Celular", "CPF", "CEP"])
+ws.append(["ID", "Nome", "Idade", "Data de Nascimento", "Gênero", "Etnia","Nome da Mãe", "Educação", "Ocupação","Telefone","Celular", "CPF", "CEP"])
 
 # Adicione os perfis aos dados
 for perfil in perfis_data:
-    ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Gênero"], 
+    ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Data de Nascimento"], perfil["Gênero"], 
                perfil["Etnia"],perfil["Nome da Mãe"] , perfil["Educação"], perfil["Ocupação"],perfil["Telefone"], perfil["Celular"], perfil["Cpf"], perfil["CEP"]])
 
 # Especifique o caminho do arquivo .xls

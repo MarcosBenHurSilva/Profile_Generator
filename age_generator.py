@@ -1,4 +1,5 @@
 import random
+import datetime
 
 # Porcentagens por faixa etária
 percentages = {
@@ -25,3 +26,19 @@ def generate_random_age():
         return random.randint(55, 64)
     else:
         return random.randint(65, 100)
+
+def generate_bithday(idade):
+    # Obtém a data atual
+    current_date = datetime.date.today()
+
+    # Calcula o ano de nascimento com base na idade
+    birth_year = current_date.year - idade
+
+    # Gera um dia e mês de aniversário aleatórios
+    birth_month = random.randint(1, 12)
+    birth_day = random.randint(1, 28)  # Assume um máximo de 28 dias em um mês para simplificar
+
+    # Combina os componentes para formar a data de aniversário
+    birthday = datetime.date(birth_year, birth_month, birth_day)
+
+    return birthday
