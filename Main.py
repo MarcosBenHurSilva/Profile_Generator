@@ -17,6 +17,8 @@ def save_to_mongodb(profiles_data):
     # Imprima os IDs dos documentos inseridos
     print(f"IDs dos documentos inseridos: {result.inserted_ids}")
 
+    
+    
 if __name__ == "__main__":
     try:
         num_profiles = int(input("Digite o número de perfis a serem gerados: "))
