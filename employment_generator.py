@@ -1,7 +1,7 @@
 import random
 
 # Funçaõ para gerar ocupação aleatória com base nas porcentagens
-def generate_ramdom_ocupation(idade):
+def generate_ramdom_ocuppation(idade):
     if idade >= 14:
         status = random.choices(["Desocupado", "Ocupado"], weights=[7.73, 92.27])[0]
         if status == "Ocupado":

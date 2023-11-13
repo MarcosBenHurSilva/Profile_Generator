@@ -10,7 +10,6 @@ percentages = {
     "65 anos ou mais": 9.5
 }
 
-
 # Função para gerar idade aleatória com base nas porcentagens
 def generate_random_age():
     rand_num = random.uniform(0, 100)  # Gera um número aleatório entre 0 e 100
@@ -27,7 +26,7 @@ def generate_random_age():
     else:
         return random.randint(65, 100)
 
-def generate_bithday(idade):
+def generate_birthday(idade):
     # Obtém a data atual
     current_date = datetime.date.today()
 
