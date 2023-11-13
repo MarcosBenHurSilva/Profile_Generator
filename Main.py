@@ -1,7 +1,3 @@
-import random
-import json
-from openpyxl import Workbook
-
 from profile_data_generator import generate_profiles
 from json_generator import save_to_json
 from xlx_generator import save_to_excel
