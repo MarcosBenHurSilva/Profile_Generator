@@ -22,7 +22,7 @@ if __name__ == "__main__":
         document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
         updated_data = profiles_data
 
-        option = input("Selecione a operação a ser feita: Create(C), Read(R), Update(U) or Delete(D)").upper()
+        option = input("Selecione a operação a ser feita: Create(C), Read(R), Update(U) or Delete(D): ").upper()
         
         match option:
             case "C":
@@ -31,11 +31,11 @@ if __name__ == "__main__":
                 read_from_mongodb()
             case "U":
                 if num_profiles == 1:
-                    update_mongodb_document(document_id, updated_data)
+                    update_mongodb_document(document_id, updated_data, id_key='id')
                 else:
                     print("Somente atualize apenas um perfil por vez.")
             case "D":
-                delete_mongodb_document(document_id)
+                delete_mongodb_document(document_id, id_key='id')
 
     except ValueError:
         print("Por favor, insira um número válido para o número de perfis.")
