@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson.objectid import ObjectId  # Importe ObjectId para lidar com IDs do MongoDB
 
 def save_to_mongodb(profiles_data):
     # Substitua 'sua_uri' pelo URI do seu banco de dados MongoDB
@@ -31,13 +32,19 @@ def update_mongodb_document(document_id, updated_data):
     db = client[input('Digite o cliente: ')]
     collection = db[input('Digite a collection: ')]
 
+    # Certifique-se de que o document_id seja um ObjectId válido
+    document_id = ObjectId(document_id)
+
     # Atualiza o documento com o ID fornecido
-    collection.update_one({"id": document_id}, {"$set": updated_data})
+    collection.update_one({"_id": document_id}, {"$set": updated_data})
 
 def delete_mongodb_document(document_id):
     client = MongoClient('mongodb://localhost:27017')
     db = client[input('Digite o cliente: ')]
     collection = db[input('Digite a collection: ')]
 
+    # Certifique-se de que o document_id seja um ObjectId válido
+    document_id = ObjectId(document_id)
+
     # Exclui o documento com o ID fornecido
-    collection.delete_one({"id": document_id})
+    collection.delete_one({"_id": document_id})

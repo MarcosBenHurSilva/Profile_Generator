@@ -1,7 +1,9 @@
+from xml.dom.expatbuilder import DOCUMENT_NODE
 from profile_data_generator import generate_profiles
 from json_generator import save_to_json
 from xlx_generator import save_to_excel
 from mongoDB import *
+from bson.objectid import ObjectId  # Importe ObjectId para lidar com IDs do MongoDB
     
 if __name__ == "__main__":
     try:
@@ -16,10 +18,11 @@ if __name__ == "__main__":
         save_to_excel(profiles_data, xls_filename)
         print(f"{num_profiles} Perfis gerados e salvos em {xls_filename}")
 
-        document_id = id
+        # Certifique-se de que o document_id seja um ObjectId válido
+        document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
         updated_data = profiles_data
 
-        option = chr(input("Selecione a operação a ser feita: Create(C), Read(R), Update(U) or Delete(D)").upper)
+        option = input("Selecione a operação a ser feita: Create(C), Read(R), Update(U) or Delete(D)").upper()
         
         match option:
             case "C":
