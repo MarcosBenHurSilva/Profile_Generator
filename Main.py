@@ -7,25 +7,24 @@ from bson.objectid import ObjectId  # Importe ObjectId para lidar com IDs do Mon
     
 if __name__ == "__main__":
     try:
-        num_profiles = int(input("Digite o número de perfis a serem gerados: "))
-        profiles_data = generate_profiles(num_profiles)
-
-        json_filename = "perfis_generated.json"
-        save_to_json(profiles_data, json_filename)
-        print(f"{num_profiles} Perfis gerados e salvos em {json_filename}")
-
-        xls_filename = "perfis_generated_openpyxl.xlsx"
-        save_to_excel(profiles_data, xls_filename)
-        print(f"{num_profiles} Perfis gerados e salvos em {xls_filename}")
-
-        # Certifique-se de que o document_id seja um ObjectId válido
-        document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
-        updated_data = profiles_data
-
         option = input("Selecione a operação a ser feita: Create(C), Read(R), Update(U) or Delete(D): ").upper()
         
         match option:
             case "C":
+                num_profiles = int(input("Digite o número de perfis a serem gerados: "))
+                profiles_data = generate_profiles(num_profiles)
+
+                json_filename = "perfis_generated.json"
+                save_to_json(profiles_data, json_filename)
+                print(f"{num_profiles} Perfis gerados e salvos em {json_filename}")
+
+                xls_filename = "perfis_generated_openpyxl.xlsx"
+                save_to_excel(profiles_data, xls_filename)
+                print(f"{num_profiles} Perfis gerados e salvos em {xls_filename}")
+
+                # Certifique-se de que o document_id seja um ObjectId válido
+                document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
+                updated_data = profiles_data
                 save_to_mongodb(profiles_data)
             case "R":
                 read_from_mongodb()
