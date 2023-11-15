@@ -29,11 +29,16 @@ if __name__ == "__main__":
             case "R":
                 read_from_mongodb()
             case "U":
+                num_profiles = int(input("Digite o número de perfis a serem gerados: "))
+                profiles_data = generate_profiles(num_profiles)
+                document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
+                updated_data = profiles_data
                 if num_profiles == 1:
                     update_mongodb_document(document_id, updated_data, id_key='id')
                 else:
                     print("Somente atualize apenas um perfil por vez.")
             case "D":
+                document_id = input("Digite o ID do documento que deseja deletar (ou deixe em branco para criar um novo): ")
                 delete_mongodb_document(document_id, id_key='id')
 
     except ValueError:
