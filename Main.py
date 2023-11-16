@@ -23,7 +23,6 @@ if __name__ == "__main__":
                 print(f"{num_profiles} Perfis gerados e salvos em {xls_filename}")
 
                 # Certifique-se de que o document_id seja um ObjectId válido
-                document_id = input("Digite o ID do documento que deseja atualizar (ou deixe em branco para criar um novo): ")
                 updated_data = profiles_data
                 save_to_mongodb(profiles_data)
             case "R":
