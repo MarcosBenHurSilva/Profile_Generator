@@ -25,8 +25,10 @@ if __name__ == "__main__":
                 # Certifique-se de que o document_id seja um ObjectId válido
                 updated_data = profiles_data
                 save_to_mongodb(profiles_data)
+
             case "R":
                 read_from_mongodb()
+                
             case "U":
                 num_profiles = int(input("Digite o número de perfis a serem gerados: "))
                 profiles_data = generate_profiles(num_profiles)
