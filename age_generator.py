@@ -35,7 +35,6 @@ def generate_birthday(idade):
 
     # Gera um dia e mês de aniversário aleatórios
     birth_month = random.randint(1, 12)
-    birth_month = random.randint(1, 12)
     max_day = 30 if birth_month in [4, 6, 9, 11] else 28 if birth_month == 2 else 31
     birth_day = random.randint(1, max_day)
 
