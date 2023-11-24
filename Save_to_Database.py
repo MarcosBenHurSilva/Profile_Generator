@@ -6,7 +6,7 @@
 # db_config = {
 #     'dbname': 'Ramdom_Profiles',
 #     'user': 'postgres',
-#     'password': '12073mb',
+#     'password': 'xxxx',
 #     'host': 'localhost',
 #     'port': '5432'
 #      }
