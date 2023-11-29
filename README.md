@@ -2,7 +2,7 @@
 Gerador de Perfis Aleatórios
 
  Este projeto é um exercício de prática de Python que busca gerar dados aleatórios
-e o mais genuinios possíveis. O objetivo principal é criar dados fictícios para testes, 
+e o mais genuinos possíveis. O objetivo principal é criar dados fictícios para testes, 
 simulações ou qualquer outra situação em que dados realistas sejam necessários.
 
 Como Usar
