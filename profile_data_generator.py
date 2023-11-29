@@ -1,6 +1,7 @@
 from gender_generator import generate_random_gender
 from name_generator import generate_name_by_gender
 from cpf_generator import generate_cpf
+from password_generator import generate_password
 from cpf_generator import validate_cpf
 from age_generator import generate_random_age
 from age_generator import generate_birthday
@@ -20,6 +21,7 @@ def generate_profiles(num_profiles):
         gender = generate_random_gender()
         full_name = generate_name_by_gender(gender)
         cpf = generate_cpf()
+        password = generate_password(12, any, any, any, any)
         is_valid = validate_cpf(cpf)
         age = generate_random_age()
         birthday = generate_birthday(age)
@@ -33,7 +35,7 @@ def generate_profiles(num_profiles):
         valid_cep = generate_cep()
 
         profiles.append({
-            "id": i + 1, "Nome": full_name, "Idade": age, "Data de Nascimento": birthday,
+            "id": i + 1, "Nome": full_name, "Idade": age, "Senha": password, "Data de Nascimento": birthday,
             "Gênero": gender, "Etnia": ethnicity, #"Nome da Mãe": mother_name,
             "Educação": education, "Ocupação": occupation, "Telefone": ddd + phone_number,
             "Celular": ddd + cell_number, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid
