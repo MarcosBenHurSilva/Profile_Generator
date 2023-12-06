@@ -29,7 +29,5 @@ if __name__ == "__main__":
             case "R":
                 read_from_mongodb()
 
-    except ValueError:
-        print("Por favor, insira um número válido para o número de perfis.")
     except Exception as e:
         print(f"Ocorreu um erro: {str(e)}")

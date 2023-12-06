@@ -13,7 +13,7 @@ email_domains = [
 
 def generate_complement(length, include_numbers, include_symbols):
     number_chars = string.digits
-    symbol_chars = "!@#$%^&*()_+-="
+    symbol_chars = "!#$%&"
     allowed_chars = ""
     complement = ""
     allowed_chars += number_chars if include_numbers else ""
@@ -32,7 +32,7 @@ def generate_email_by_name(full_name, complement_length, include_numbers, includ
 
     if " " in full_name:
         first_name, last_name = full_name.split(" ", 1)
-        if random.randint(0, 1):  # 50% chance of using first name
+        if random.choice([True, False]):  # Aleatoriamente escolher entre primeiro e último nome
             nickname = first_name.lower() + random.choice([".", "_"]) + last_name.lower()
         else:
             nickname = last_name.lower() + random.choice([".", "_"]) + first_name.lower()
@@ -45,4 +45,4 @@ def generate_email_by_name(full_name, complement_length, include_numbers, includ
         include_symbols
     )
 
-    return nickname + complement + "@" + random_domain
+    return (nickname + complement + "@" + random_domain).replace(" ", "_")
