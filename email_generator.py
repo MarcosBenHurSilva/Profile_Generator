@@ -30,14 +30,12 @@ def generate_email_by_name(full_name, complement_length, include_numbers, includ
     weights = [20, 10, 5, 5, 10] + [1] * (len(email_domains) - 5)
     random_domain = random.choices(email_domains, weights=weights)[0]
 
-    if " " in full_name:
-        first_name, last_name = full_name.split(" ", 1)
-        if random.choice([True, False]):  # Aleatoriamente escolher entre primeiro e último nome
-            nickname = first_name.lower() + random.choice([".", "_"]) + last_name.lower()
-        else:
-            nickname = last_name.lower() + random.choice([".", "_"]) + first_name.lower()
+    names = full_name.split(" ")
+
+    if len(names) > 1:
+        nickname = names[0] + "_" + names[-1]
     else:
-        nickname = full_name.lower()
+        nickname = "_".join(names)
 
     complement = generate_complement(
         complement_length,

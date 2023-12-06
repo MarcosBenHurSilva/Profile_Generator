@@ -23,8 +23,8 @@ def generate_profiles(num_profiles):
         full_name = generate_name_by_gender(gender)
         cpf = generate_cpf()
         complement_length = random.choices([0, 1, 2, 3, 4], weights=[5, 25, 30, 25, 15])[0]
-        include_numbers = random.choices([True, False], weights=[80, 20])[0]
-        include_symbols = random.choices([True, False], weights=[60, 40])[0]
+        include_numbers = any
+        include_symbols = any
         email = generate_email_by_name(full_name, complement_length, include_numbers, include_symbols)
         password = generate_password(12, any, any, any, any)
         is_valid = validate_cpf(cpf)
