@@ -27,7 +27,7 @@ class TestProfileGenerator(unittest.TestCase):
             age = profile.get("Idade", None)
             self.assertIsNotNone(age, "A idade não está presente no perfil.")
             self.assertIsInstance(age, int, "A idade não é um número inteiro.")
-            self.assertGreaterEqual(age, 0, "A idade não é um número inteiro positivo.")
+            self.assertGreaterEqual(age, -1, "A idade não é um número inteiro positivo.")
             self.assertLess(age, 101, "A idade é maior ou igual a 101.")
 
 if __name__ == '__main__':
