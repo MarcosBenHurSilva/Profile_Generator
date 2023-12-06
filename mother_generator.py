@@ -36,7 +36,11 @@ unique_mother_surnames = list(set(mother_surnames))
 def generate_mother_by_name(full_name):
     names = full_name.split(" ")
     
-    if len(names) > 1:
+    if len(names) > 2:
+        first_name = random.choice(unique_mother_names)
+        last_name = random.choice(names[2:])
+        return first_name + " " + last_name
+    elif len(names) == 2:
         first_name = random.choice(unique_mother_names)
         last_name = random.choice(names[1:])
         return first_name + " " + last_name

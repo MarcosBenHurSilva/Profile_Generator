@@ -1,5 +1,5 @@
 from gender_generator import generate_random_gender
-from name_generator import generate_name_by_gender
+from name_generator import *
 from cpf_generator import generate_cpf
 from email_generator import *
 from password_generator import generate_password
