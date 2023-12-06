@@ -26,25 +26,3 @@ def read_from_mongodb():
     # Imprime os documentos
     for doc in documents:
         print(doc)
-
-def update_mongodb_document(document_id, updated_data, id_key='id'):
-    client = MongoClient('mongodb://localhost:27017')
-    db = client[input('Digite o cliente: ')]
-    collection = db[input('Digite a collection: ')]
-
-    # Certifique-se de que o document_id seja um valor válido
-    document_id = {id_key: document_id}
-
-    # Atualiza o documento com o ID fornecido
-    collection.update_one({id_key: document_id[id_key]}, {"$set": updated_data})
-
-def delete_mongodb_document(document_id, id_key='id'):
-    client = MongoClient('mongodb://localhost:27017')
-    db = client[input('Digite o cliente: ')]
-    collection = db[input('Digite a collection: ')]
-
-    # Certifique-se de que o document_id seja um valor válido
-    document_id = {id_key: document_id}
-
-    # Exclui o documento com o ID fornecido
-    collection.delete_one({id_key: document_id[id_key]})
